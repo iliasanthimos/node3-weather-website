@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.evn.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -22,14 +23,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Andrew Mead'
+        name: 'Ilias Anthimos'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Andrew Mead'
+        name: 'Ilias Anthimos'
     })
 })
 
@@ -37,7 +38,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This is some helpful text.',
         title: 'Help',
-        name: 'Andrew Mead'
+        name: 'Ilias Anthimos'
     })
 })
 
@@ -63,13 +64,6 @@ app.get('/weather', (req, res) => {
             })
         }) 
     })
-    
-    
-    // res.send({
-    //     forecast: 'clear',
-    //     location: 'greece',
-    //     address: req.query.address
-    // })
 })
 
 app.get('/products', (req, res) => {
@@ -87,7 +81,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Ilias Anthimos',
         errorMessage: 'Help article not found.'
     })
 })
@@ -95,11 +89,11 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Ilias Anthimos',
         errorMessage: 'Page not found.'
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port: ' + port)
 })
