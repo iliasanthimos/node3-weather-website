@@ -1,5 +1,5 @@
 # node-weather-website
-## NodeJS, Express, Handlebars Mapbox, WeatherStack
+## NodeJS, Express, Handlebars, Mapbox, WeatherStack
 
 Run npm install
 
